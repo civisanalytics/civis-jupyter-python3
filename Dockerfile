@@ -16,7 +16,7 @@ ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
 RUN chmod +x /tini
 
 RUN pip install civis-jupyter-notebook~=${CIVIS_JUPYTER_NOTEBOOK_VERSION} && \
-    civis-jupyter-notebooks-install 
+    civis-jupyter-notebooks-install
 
 EXPOSE 8888
 WORKDIR /root/work
