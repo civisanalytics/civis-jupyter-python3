@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Changed requirement on `civis-jupyter-notebook` to only need a compatible version (#3).
 - `civis-jupyter-notebook` v0.1 -> v0.2 (#4).
-- Renamed `CHANGE_LOG.md` to `CHANGELOG.md`.
+- Renamed `CHANGE_LOG.md` to `CHANGELOG.md` (#4).
 
 ### Fixed
 - Incorrect entry in the change log (#2).
