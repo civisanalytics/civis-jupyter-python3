@@ -10,3 +10,11 @@ test:
   override:
     - docker run civisanalytics/civis-jupyter-python3 /bin/bash -c "echo BUILDS OK"
     - docker run civisanalytics/civis-jupyter-python3 python -c "import civis"
+
+deployment:
+  release:
+    tag: /v[0-9]+(\.[0-9]+)*/
+    commands:
+      - go get github.com/tcnksm/ghr
+      - docker run civisanalytics/civis-jupyter-python3 /bin/bash -c "pip freeze" > requirements.txt
+      - ghr -t $GITHUB_TOKEN -u civisanalytics -r civis-jupyter-python3 $CIRCLE_TAG requirements.txt
