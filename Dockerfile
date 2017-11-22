@@ -9,13 +9,13 @@ ENV VERSION= \
     VERSION_MICRO= \
     TINI_VERSION=v0.16.1 \
     DEFAULT_KERNEL=python3 \
-    CIVIS_JUPYTER_NOTEBOOK_VERSION=0.2.2
+    CIVIS_JUPYTER_NOTEBOOK_VERSION=0.2.3
 
 # Install Tini
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
 RUN chmod +x /tini
 
-RUN pip install git+https://github.com/civisanalytics/civis-jupyter-notebook.git@4f9c812b1b9bd8480043c5261309ddd951ef18cc && \
+RUN pip install git+https://github.com/civisanalytics/civis-jupyter-notebook.git@0931ce8e289ef4e738ce3b6a5c3bc870a370d996 && \
     civis-jupyter-notebooks-install
 
 EXPOSE 8888
