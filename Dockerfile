@@ -9,7 +9,7 @@ ENV VERSION= \
     VERSION_MICRO= \
     TINI_VERSION=v0.16.1 \
     DEFAULT_KERNEL=python3 \
-    CIVIS_JUPYTER_NOTEBOOK_VERSION=0.2.2
+    CIVIS_JUPYTER_NOTEBOOK_VERSION=0.2.4
 
 # Install Tini
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
