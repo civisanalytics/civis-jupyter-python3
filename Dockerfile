@@ -1,4 +1,4 @@
-FROM civisanalytics/datascience-python:3.2.0
+FROM civisanalytics/datascience-python:3.3.0
 MAINTAINER support@civisanalytics.com
 
 # Version strings are set in datascience-python
@@ -9,7 +9,7 @@ ENV VERSION= \
     VERSION_MICRO= \
     TINI_VERSION=v0.16.1 \
     DEFAULT_KERNEL=python3 \
-    CIVIS_JUPYTER_NOTEBOOK_VERSION=0.2.3
+    CIVIS_JUPYTER_NOTEBOOK_VERSION=0.2.4
 
 # Install Tini
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
