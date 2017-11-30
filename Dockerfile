@@ -15,7 +15,7 @@ ENV VERSION= \
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
 RUN chmod +x /tini
 
-RUN pip install civis-jupyter-notebook==${CIVIS_JUPYTER_NOTEBOOK_VERSION} && \
+RUN pip install git+https://github.com/civisanalytics/civis-jupyter-notebook.git@88a681f1fe64a32697ba196c1a88b881bda590e7 && \
     civis-jupyter-notebooks-install
 
 EXPOSE 8888
@@ -23,4 +23,4 @@ WORKDIR /root/work
 
 # Configure container startup
 ENTRYPOINT ["/tini", "--"]
-CMD ["civis-jupyter-notebooks-start"] 
+CMD ["civis-jupyter-notebooks-start"]
