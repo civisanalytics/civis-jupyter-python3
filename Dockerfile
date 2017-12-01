@@ -15,7 +15,7 @@ ENV VERSION= \
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
 RUN chmod +x /tini
 
-RUN pip install git+https://github.com/civisanalytics/civis-jupyter-notebook.git@de309d96b8cbe586495fa3d77552f127a273bd81 && \
+RUN pip install git+https://github.com/civisanalytics/civis-jupyter-notebook.git@1edfb86bca526027c47ec95a6d9eeb427eb014c0 && \
     civis-jupyter-notebooks-install
 
 EXPOSE 8888
