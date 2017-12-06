@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 
+### Added
+- Add Civis matplotlib style (https://github.com/civisanalytics/civis-mpl-style).
+
 ## [1.2.1] - 2017-11-28
 
 ### Fixed
