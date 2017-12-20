@@ -11,6 +11,15 @@ ENV VERSION= \
     DEFAULT_KERNEL=python3 \
     CIVIS_JUPYTER_NOTEBOOK_VERSION=0.3.1
 
+RUN DEBIAN_FRONTEND=noninteractive apt-get update -y --no-install-recommends && \
+  apt-get install -y --no-install-recommends software-properties-common && \
+  apt-get install -y --no-install-recommends \
+        vim \
+        nano \
+        emacs && \
+  apt-get clean -y && \
+  rm -rf /var/lib/apt/lists/*
+
 # Install Tini
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
 RUN chmod +x /tini
