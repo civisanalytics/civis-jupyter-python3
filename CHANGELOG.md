@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.5.1] - 2018-01-03
+
+### Changed
+- civis-jupyter-notebook v0.4.0 -> v0.4.1 (#18)
+
 ## [1.5.0] - 2017-12-20
 
 ### Changed
