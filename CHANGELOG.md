@@ -5,7 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
-
+### Changed
+- Migrate CircleCI build from v1.0 to v2.0 (#23)
 
 ## [1.7.0] - 2018-04-26
 ### Changed
