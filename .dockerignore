@@ -1,4 +1,4 @@
 .gitignore
 *.md
 LICENSE.txt
-circle.yml
+.circleci

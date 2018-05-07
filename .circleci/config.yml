@@ -1,0 +1,11 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/python:3.6.5
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run: docker build -t civisanalytics/civis-jupyter-python3 .
+      - run: docker run civisanalytics/civis-jupyter-python3 /bin/bash -c "echo BUILDS OK"
+      - run: docker run civisanalytics/civis-jupyter-python3 python -c "import civis"
