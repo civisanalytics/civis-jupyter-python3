@@ -29,8 +29,7 @@ RUN chmod +x /tini
 # RUN pip install civis-jupyter-notebook==${CIVIS_JUPYTER_NOTEBOOK_VERSION} && \
 #     civis-jupyter-notebooks-install
 
-RUN pip install git+git://github.com/civisanalytics/civis-jupyter-notebook@update-notebook-version && \
-    install-civis-style
+RUN pip install git+git://github.com/civisanalytics/civis-jupyter-notebook@update-notebook-version
 
 RUN pip install git+git://github.com/civisanalytics/civis-mpl-style.git@v0.1.0 && \
    install-civis-style
