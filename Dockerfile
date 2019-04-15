@@ -1,4 +1,4 @@
-FROM civisanalytics/datascience-python:4.2.0
+FROM civisanalytics/datascience-python:5.0.0
 MAINTAINER support@civisanalytics.com
 
 # Version strings are set in datascience-python
@@ -9,7 +9,7 @@ ENV VERSION= \
     VERSION_MICRO= \
     TINI_VERSION=v0.16.1 \
     DEFAULT_KERNEL=python3 \
-    CIVIS_JUPYTER_NOTEBOOK_VERSION=0.4.2
+    CIVIS_JUPYTER_NOTEBOOK_VERSION=0.4.3
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update -y --no-install-recommends && \
   apt-get install -y --no-install-recommends software-properties-common && \
