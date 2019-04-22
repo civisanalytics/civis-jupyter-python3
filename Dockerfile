@@ -1,4 +1,4 @@
-FROM civisanalytics/datascience-python:4.2.0
+FROM civisanalytics/datascience-python:5.0.0
 MAINTAINER support@civisanalytics.com
 
 # Version strings are set in datascience-python
@@ -27,11 +27,11 @@ ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
 RUN chmod +x /tini
 
 # for dev only
-# RUN pip install git+git://github.com/civisanalytics/civis-jupyter-notebook@update-notebook-version && \
-#  civis-jupyter-notebooks-install
+RUN pip install git+git://github.com/civisanalytics/civis-jupyter-notebook@v0.4.4 && \
+  civis-jupyter-notebooks-install
 
-RUN pip install civis-jupyter-notebook==${CIVIS_JUPYTER_NOTEBOOK_VERSION} && \
-    civis-jupyter-notebooks-install
+#RUN pip install civis-jupyter-notebook==${CIVIS_JUPYTER_NOTEBOOK_VERSION} && \
+#    civis-jupyter-notebooks-install
 
 RUN pip install git+git://github.com/civisanalytics/civis-mpl-style.git@v0.1.0 && \
     install-civis-style
