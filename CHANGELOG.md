@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## Unreleased
 
 ## [1.10.0] - 2019-04-22
+### Changed
 - Update base datascience-python version to v5.0.0 (#28)
 - Update civis-jupyter-notebook version to v0.4.5 (#28)
 
