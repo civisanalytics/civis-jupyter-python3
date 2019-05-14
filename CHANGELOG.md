@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 
-## [2.0.0] - 2019-05-10
+## [1.12.0] - 2019-05-10
 ### Changed
 - Update civis-jupyter-notebook version to v1.0.0 (#31)
 
