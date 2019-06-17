@@ -26,7 +26,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update -y --no-install-recommends && 
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
 RUN chmod +x /tini
 
-RUN pip install git+https://github.com/civisanalytics/civis-jupyter-notebook.git@fake-long-pkg-install && \
+RUN pip install git+https://github.com/civisanalytics/civis-jupyter-notebook.git@edf31d9b5f794e66f94eb322dc1e34644d83340d && \
     civis-jupyter-notebooks-install
 
 RUN pip install git+git://github.com/civisanalytics/civis-mpl-style.git@v0.1.0 && \
