@@ -11,6 +11,9 @@ phases:
       - echo $REPOSITORY_URI
       - echo $COMMIT_HASH_SHORT
       - echo $BRANCH_NAME
+      - export COMMIT_HASH_SHORT=v0.0.0
+      - COMMIT_HASH_SHORT=${COMMIT_HASH_SHORT#"v"}
+      - echo $COMMIT_HASH_SHORT
       - docker build --tag ${REPOSITORY_URI}:${COMMIT_HASH_SHORT} --tag ${REPOSITORY_URI}:${BRANCH_NAME} .
       - docker push ${REPOSITORY_URI}:${COMMIT_HASH_SHORT}
       - docker push ${REPOSITORY_URI}:${BRANCH_NAME}
