@@ -1,0 +1,20 @@
+version: 0.2
+phases:
+  pre_build:
+    commands:
+      - echo Logging in to Amazon ECR...
+      - $(aws ecr get-login --no-include-email --region $AWS_DEFAULT_REGION)
+      - export COMMIT_HASH_SHORT="$(echo $COMMIT_HASH | cut -c 1-7)"
+  build:
+    commands:
+      - echo Building the Docker image...
+      - echo $REPOSITORY_URI
+      - echo $COMMIT_HASH_SHORT
+      - echo $BRANCH_NAME
+      - docker build --tag ${REPOSITORY_URI}:${COMMIT_HASH_SHORT} --tag ${REPOSITORY_URI}:${BRANCH_NAME} .
+      - docker push ${REPOSITORY_URI}:${COMMIT_HASH_SHORT}
+      - docker push ${REPOSITORY_URI}:${BRANCH_NAME}
+  post_build:
+    commands:
+      - echo Build completed!
+      - printf '{"tag":"%s"}' $COMMIT_HASH_SHORT > build.json
