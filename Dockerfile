@@ -29,6 +29,8 @@ RUN chmod +x /tini
 RUN pip install civis-jupyter-notebook==${CIVIS_JUPYTER_NOTEBOOK_VERSION} && \
     civis-jupyter-notebooks-install
 
+RUN pip install tensorflow==1.14.0
+
 RUN pip install git+git://github.com/civisanalytics/civis-mpl-style.git@v0.1.0 && \
     install-civis-style
 
