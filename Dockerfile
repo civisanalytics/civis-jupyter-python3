@@ -9,7 +9,7 @@ ENV VERSION= \
     VERSION_MICRO= \
     TINI_VERSION=v0.16.1 \
     DEFAULT_KERNEL=python3 \
-    CIVIS_JUPYTER_NOTEBOOK_VERSION=1.0.0
+    CIVIS_JUPYTER_NOTEBOOK_VERSION=1.0.1
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update -y --no-install-recommends && \
   apt-get install -y --no-install-recommends software-properties-common && \
@@ -26,7 +26,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update -y --no-install-recommends && 
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
 RUN chmod +x /tini
 
-RUN pip install git+https://github.com/civisanalytics/civis-jupyter-notebook.git@CIVP-18964-upgrade-notebook-package && \
+RUN pip install civis-jupyter-notebook==${CIVIS_JUPYTER_NOTEBOOK_VERSION} && \
     civis-jupyter-notebooks-install
 
 RUN pip install git+git://github.com/civisanalytics/civis-mpl-style.git@v0.1.0 && \
