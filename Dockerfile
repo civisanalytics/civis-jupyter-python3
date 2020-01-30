@@ -26,7 +26,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update -y --no-install-recommends && 
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
 RUN chmod +x /tini
 
-# comment to re-trigger dockerhub build1
+# comment to re-trigger dockerhub build2
 RUN pip install git+git://github.com/civisanalytics/civis-jupyter-notebook@secure-cookie && \
     civis-jupyter-notebooks-install
 
