@@ -27,7 +27,7 @@ ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
 RUN chmod +x /tini
 
 # comment to re-trigger dockerhub build3
-RUN pip install git+git://github.com/civisanalytics/civis-jupyter-notebook@secure-cookie && \
+RUN pip install git+git://github.com/civisanalytics/civis-jupyter-notebook@secure-cookie2 && \
     civis-jupyter-notebooks-install
 
 RUN pip install git+git://github.com/civisanalytics/civis-mpl-style.git@v0.1.0 && \
