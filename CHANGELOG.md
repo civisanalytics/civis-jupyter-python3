@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
+
+## [2.0.0] - 2020-02-18
 ### Changed
 - update base datascience-python version to v6.0.0 (#41)
 
