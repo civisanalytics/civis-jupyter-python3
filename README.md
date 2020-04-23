@@ -24,13 +24,8 @@ If you would like to test the image locally follow the steps below:
 
 1. Create a notebook in your Civis platform account and grab the id of the notebook. This ID is the number that appears at the end of the URL for the notebook, https://platform.civisanalytics.com/#/notebooks/<NOTEBOOK ID>
 2. Grab a Civis API Key from your account. [How to Generate a Civis API Key](https://civis.zendesk.com/hc/en-us/articles/216341583-Generating-an-API-Key)
-3. Create an environment file called ```my.env``` and add the following to it:
-```bash
-PLATFORM_OBJECT_ID=<NOTEBOOK ID>
-CIVIS_API_KEY=<YOUR API KEY>
-```
 3. Build your image locally: ```docker build -t civis-jupyter-python3 .```
-4. Run the container: ```docker run --rm -p 8888:8888 --env-file my.env civis-jupyter-python3```
+4. Run the container: ```docker run --rm -p 8888:8888 -e PLATFORM_OBJECT_ID=<NOTEBOOK ID> -e CIVIS_API_KEY=$CIVIS_API_KEY civis-jupyter-python3``` (This assumes $CIVIS_API_KEY is set in your environment.)
 5. Access the notebook at the ip of your docker host with port 8888 i.e. ```<docker-host-ip>:8888```
 
 # Contributing
