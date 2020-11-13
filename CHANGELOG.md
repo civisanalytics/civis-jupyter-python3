@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 
+## [2.3.1] - 2020-11-13
+### Changed
+- update base datascience-python version to v6.3.1 (#47)
+
 ## [2.3.0] - 2020-09-30
 ### Changed
 - update base datascience-python version to v6.3.0 (#46)

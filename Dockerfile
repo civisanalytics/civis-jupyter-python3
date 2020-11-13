@@ -1,4 +1,4 @@
-FROM civisanalytics/datascience-python:6.3.0
+FROM civisanalytics/datascience-python:6.3.1
 MAINTAINER support@civisanalytics.com
 
 # Version strings are set in datascience-python
