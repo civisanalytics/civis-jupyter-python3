@@ -1,4 +1,4 @@
-FROM civisanalytics/datascience-python:6.5.1
+FROM civisanalytics/datascience-python:7.0.0
 MAINTAINER support@civisanalytics.com
 
 # Version strings are set in datascience-python
@@ -7,9 +7,9 @@ ENV VERSION= \
     VERSION_MAJOR= \
     VERSION_MINOR= \
     VERSION_MICRO= \
-    TINI_VERSION=v0.16.1 \
+    TINI_VERSION=v0.19.0 \
     DEFAULT_KERNEL=python3 \
-    CIVIS_JUPYTER_NOTEBOOK_VERSION=2.0.0
+    CIVIS_JUPYTER_NOTEBOOK_VERSION=2.1.1
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update -y --no-install-recommends && \
   apt-get install -y --no-install-recommends software-properties-common && \
@@ -29,7 +29,7 @@ RUN chmod +x /tini
 RUN pip install civis-jupyter-notebook==${CIVIS_JUPYTER_NOTEBOOK_VERSION} && \
     civis-jupyter-notebooks-install
 
-RUN pip install git+git://github.com/civisanalytics/civis-mpl-style.git@v0.1.0 && \
+RUN pip install git+https://github.com/civisanalytics/civis-mpl-style.git@v0.1.0 && \
     install-civis-style
 
 EXPOSE 8888

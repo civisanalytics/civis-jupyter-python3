@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 
+## [3.0.0] - 2023-08-22
+### Changed
+- update base datascience-python version to v7.0.0 (#50)
+- update tini version to v0.19.0 (#50)
+- update civis-jupyter-notebook version to v2.1.1 (#50)
+
 ## [2.4.1] - 2021-12-15
 ### Changed
 - update base datascience-python version to v6.5.1 (#49)
