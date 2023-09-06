@@ -1,5 +1,5 @@
 FROM civisanalytics/datascience-python:7.0.0
-MAINTAINER support@civisanalytics.com
+LABEL maintainer = support@civisanalytics.com
 
 # Version strings are set in datascience-python
 # Set to blank strings here; they'd be misleading.
@@ -8,11 +8,9 @@ ENV VERSION= \
     VERSION_MINOR= \
     VERSION_MICRO= \
     TINI_VERSION=v0.19.0 \
-    DEFAULT_KERNEL=python3 \
-    CIVIS_JUPYTER_NOTEBOOK_VERSION=2.1.1
+    DEFAULT_KERNEL=python3
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update -y --no-install-recommends && \
-  apt-get install -y --no-install-recommends software-properties-common && \
   apt-get install -y --no-install-recommends \
         vim \
         nano \
@@ -26,11 +24,12 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update -y --no-install-recommends && 
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
 RUN chmod +x /tini
 
-RUN pip install civis-jupyter-notebook==${CIVIS_JUPYTER_NOTEBOOK_VERSION} && \
-    civis-jupyter-notebooks-install
+COPY requirements-full.txt .
 
-RUN pip install git+https://github.com/civisanalytics/civis-mpl-style.git@v0.1.0 && \
-    install-civis-style
+RUN pip install -r requirements-full.txt && \
+    pip cache purge && \
+    rm requirements-full.txt && \
+    civis-jupyter-notebooks-install
 
 EXPOSE 8888
 WORKDIR /root/work
