@@ -12,7 +12,7 @@ phases:
       - MINOR_TAG=${PATCH_TAG%.*} # major.minor
       - MAJOR_TAG=${MINOR_TAG%.*} # major
       - export DS_PYTHON_IMG_VERSION=$(head -n 1 ./.ds_python_version)
-      - docker build --build-arg="DS_PYTHON_IMG_VERSION=${$(head -n 1 ./.ds_python_version)}" -t ${REPOSITORY_URI}:${PATCH_TAG} -t ${REPOSITORY_URI}:${MINOR_TAG} -t ${REPOSITORY_URI}:${MAJOR_TAG} .
+      - docker build --build-arg="DS_PYTHON_IMG_VERSION=${DS_PYTHON_IMG_VERSION}" -t ${REPOSITORY_URI}:${PATCH_TAG} -t ${REPOSITORY_URI}:${MINOR_TAG} -t ${REPOSITORY_URI}:${MAJOR_TAG} .
       - docker push ${REPOSITORY_URI}
   post_build:
     commands:
