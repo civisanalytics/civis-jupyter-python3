@@ -7,7 +7,8 @@ phases:
   build:
     commands:
       - echo Building the Docker image...
-      - docker build -t ${REPOSITORY_URI}:latest .
+      - DS_PYTHON_IMG_VERSION=$(head -n 1 ./.ds_python_version)
+      - docker build --build-arg="DS_PYTHON_IMG_VERSION=${DS_PYTHON_IMG_VERSION}" -t ${REPOSITORY_URI}:latest .
       - docker push ${REPOSITORY_URI}
   post_build:
     commands:

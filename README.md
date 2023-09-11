@@ -1,11 +1,11 @@
 # Civis Jupyter Notebook Docker Image for Python 3
 [![CircleCI](https://circleci.com/gh/civisanalytics/civis-jupyter-python3/tree/master.svg?style=svg)](https://circleci.com/gh/civisanalytics/civis-jupyter-python3/tree/master)
 
-# Installation
+## Installation
 
 Either build the Docker image locally
 ```bash
-docker build -t civis-jupyter-python3 .
+./build_docker_file.sh
 ```
 
 or download the image from DockerHub
@@ -18,7 +18,13 @@ will give you the most recently-built version of the civis-jupyter-python3
 image. You can replace the tag `latest` with a version number such as `1.0`
 to retrieve a reproducible environment.
 
-# Testing Integration with the Civis Platform
+## Updating the version of Dockerfile's Base Image: civisanalytics/datascience-python
+
+The version number has been pulled out into a dedicated file to centralize consumption of the file through the scripts that require it.
+
+To update the version simply change the version number in `.ds_python_version`
+
+## Testing Integration with the Civis Platform
 
 If you would like to test the image locally follow the steps below:
 
@@ -28,17 +34,17 @@ If you would like to test the image locally follow the steps below:
 4. Run the container: ```docker run --rm -p 8888:8888 -e PLATFORM_OBJECT_ID=<NOTEBOOK ID> -e CIVIS_API_KEY=$CIVIS_API_KEY civis-jupyter-python3``` (This assumes $CIVIS_API_KEY is set in your environment.)
 5. Access the notebook at the ip of your docker host with port 8888 i.e. ```<docker-host-ip>:8888```
 
-# Contributing
+## Contributing
 
 See [CONTRIBUTING](CONTRIBUTING.md) for information about contributing to this project.
 
 If you make any changes, be sure to build a container to verify that it successfully completes:
 ```bash
-docker build -t civis-jupyter-python3:test .
+./build_docker_file.sh
 ```
 and describe any changes in the [change log](CHANGELOG.md).
 
-## For Maintainers
+### For Maintainers
 
 This repo has autobuild enabled. Any PR that is merged to master will
 be built as the `latest` tag on Dockerhub.
@@ -49,7 +55,7 @@ The title of the release should be the same as the tag. Include a change log in 
 Once the release is tagged, DockerHub will automatically build three identical containers, with labels
 "major", "major.minor", and "major.minor.micro".
 
-# License
+## License
 
 BSD-3
 

@@ -1,4 +1,7 @@
-FROM civisanalytics/datascience-python:7.0.0
+# Default value provided here; can be overridden at build time.
+ARG DS_PYTHON_IMG_VERSION=overridden_at_build_time
+FROM civisanalytics/datascience-python:${DS_PYTHON_IMG_VERSION}
+
 LABEL maintainer = support@civisanalytics.com
 
 # Version strings are set in datascience-python
