@@ -7,7 +7,7 @@ jobs:
       - checkout
       - setup_remote_docker
       - run:
-          name: "Setup custom environment variables"
+          name: "Get civisanalytics/datascience-python image version"
           command: echo 'export DS_PYTHON_IMG_VERSION="$(head -n 1 ./.ds_python_version)"' >> "$BASH_ENV"
       - run:
           name: Build Image
