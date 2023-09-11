@@ -1,7 +1,7 @@
 #!/bin/bash
 docker run \
   -v $(pwd):/src \
-  -ti --rm civisanalytics/datascience-python:7 \
+  -ti --rm civisanalytics/datascience-python:7.0.0 \
   /bin/bash -c \
     "pip freeze >> /tmp/requirements-aggregated-core.txt && \
     cat /src/requirements-core.txt >> /tmp/requirements-aggregated-core.txt && \
