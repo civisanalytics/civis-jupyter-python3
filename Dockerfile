@@ -43,4 +43,4 @@ WORKDIR /root/work
 
 # Configure container startup
 ENTRYPOINT ["/tini", "--"]
-CMD ["civis-jupyter-notebooks-start"]
+CMD ["civis-jupyter-notebooks-start", "--NotebookApp.show_banner=False"]
