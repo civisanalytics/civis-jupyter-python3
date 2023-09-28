@@ -12,7 +12,7 @@ phases:
       - echo $COMMIT_HASH_SHORT
       - echo $BRANCH_NAME
       - export DS_PYTHON_IMG_VERSION=$(head -n 1 ./.ds_python_version)
-      - docker build --build-arg="DS_PYTHON_IMG_VERSION=${DS_PYTHON_IMG_VERSION}" --tag ${REPOSITORY_URI}:${COMMIT_HASH_SHORT} --tag ${REPOSITORY_URI}:${BRANCH_NAME} -tag civisanalytics/civis-jupyter-python3:${BRANCH_NAME} .
+      - docker build --build-arg="DS_PYTHON_IMG_VERSION=${DS_PYTHON_IMG_VERSION}" --tag ${REPOSITORY_URI}:${COMMIT_HASH_SHORT} --tag ${REPOSITORY_URI}:${BRANCH_NAME} --tag civisanalytics/civis-jupyter-python3:${BRANCH_NAME} .
       - docker image push --all-tags ${REPOSITORY_URI}
       - docker image push --all-tags ${civisanalytics/civis-jupyter-python3}
   post_build:
