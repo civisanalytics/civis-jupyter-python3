@@ -4,7 +4,7 @@ phases:
     commands:
       - echo Logging in to Amazon ECR...
       - aws ecr get-login-password --region ${AWS_DEFAULT_REGION} | docker login --username AWS --password-stdin ${REPOSITORY_URI}
-      - echo $DOCKERHUB_PASSWORD | docker login --username civisanalytics --password-stdin
+      - echo $DOCKERHUB_PASSWORD | docker login --username civisawsbuilder --password-stdin
       - export COMMIT_HASH_SHORT="$(echo $COMMIT_HASH | cut -c 1-7)"
       - echo Building the Docker image...
       - echo $REPOSITORY_URI
