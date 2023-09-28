@@ -6,7 +6,7 @@ phases:
       - echo Logging in to Amazon ECR...
       - aws ecr get-login-password --region ${AWS_DEFAULT_REGION} | docker login --username AWS --password-stdin ${REPOSITORY_URI}
       - echo Logging into Docker Hub
-      - echo ${DOCKERHUB_PASSWORD} | docker login --username civisawsbuilder --password-stdin
+      - echo $DOCKERHUB_PASSWORD | docker login --username civisawsbuilder --password-stdin
       - echo Building the Docker image...
       - PATCH_TAG=${TAG_NAME#"v"} # major.minor.patch
       - MINOR_TAG=${PATCH_TAG%.*} # major.minor
