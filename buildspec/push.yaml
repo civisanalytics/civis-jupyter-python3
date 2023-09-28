@@ -11,6 +11,7 @@ phases:
       - echo $REPOSITORY_URI
       - echo $COMMIT_HASH_SHORT
       - echo $BRANCH_NAME
+      - echo $DOCKERHUB_PASSWORD | docker login --username civisanalytics --password-stdin
       - export DS_PYTHON_IMG_VERSION=$(head -n 1 ./.ds_python_version)
       - docker build --build-arg="DS_PYTHON_IMG_VERSION=${DS_PYTHON_IMG_VERSION}" --tag ${REPOSITORY_URI}:${COMMIT_HASH_SHORT} --tag ${REPOSITORY_URI}:${BRANCH_NAME} .
       - docker push ${REPOSITORY_URI}:${COMMIT_HASH_SHORT}
