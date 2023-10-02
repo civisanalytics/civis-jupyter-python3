@@ -5,7 +5,7 @@ phases:
       - echo Logging in to Amazon ECR...
       - aws ecr get-login-password --region ${AWS_DEFAULT_REGION} | docker login --username AWS --password-stdin ${REPOSITORY_URI}
       - echo Logging in to Docker Hub
-      - echo $DOCKERHUB_PASSWORD | docker login --username civisawsbuilder --password-stdin
+      - echo $DOCKERHUB_PASSWORD | docker login --username ${DOCKERHUB_USERNAME} --password-stdin
       - echo Building the Docker image...
       - export DS_PYTHON_IMG_VERSION=$(head -n 1 ./.ds_python_version)
       - docker build --build-arg="DS_PYTHON_IMG_VERSION=${DS_PYTHON_IMG_VERSION}" -t ${REPOSITORY_URI}:latest -t civisanalytics/civis-jupyter-python3:latest .
