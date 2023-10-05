@@ -2,10 +2,15 @@ version: 2
 jobs:
   build:
     docker:
-      - image: cimg/python:3.7
+      - image: cimg/python:3.11
     steps:
       - checkout
       - setup_remote_docker
-      - run: docker build -t civisanalytics/civis-jupyter-python3 .
+      - run:
+          name: "Get civisanalytics/datascience-python image version"
+          command: echo 'export DS_PYTHON_IMG_VERSION="$(head -n 1 ./.ds_python_version)"' >> "$BASH_ENV"
+      - run:
+          name: Build Image
+          command: docker build --build-arg="DS_PYTHON_IMG_VERSION=${DS_PYTHON_IMG_VERSION}" -t civisanalytics/civis-jupyter-python3 .
       - run: docker run civisanalytics/civis-jupyter-python3 /bin/bash -c "echo BUILDS OK"
       - run: docker run civisanalytics/civis-jupyter-python3 python -c "import civis"
