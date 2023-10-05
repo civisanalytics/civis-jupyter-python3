@@ -9,7 +9,6 @@ phases:
       - echo Building the Docker image...
       - export DS_PYTHON_IMG_VERSION=$(head -n 1 ./.ds_python_version)
       - docker build --build-arg="DS_PYTHON_IMG_VERSION=${DS_PYTHON_IMG_VERSION}" -t ${REPOSITORY_URI}:latest -t civisanalytics/civis-jupyter-python3:latest .
-      - civisanalytics/civis-jupyter-python3
       - docker image push --all-tags ${REPOSITORY_URI}
       - docker image push --all-tags civisanalytics/civis-jupyter-python3
   post_build:
