@@ -13,7 +13,12 @@ jobs:
             import re
             v1 = re.search(r"(\d+\.\d+.\d+)", open(".ds_python_version").read()).group(1)
             v2 = re.search(r"ARG DS_PYTHON_IMG_VERSION\=(\d+\.\d+.\d+)", open("Dockerfile").read()).group(1)
-            assert v1 == v2, ".ds_python_version and Dockerfile don't match for the ds-py image version"
+            if v1 == v2:
+                print(f".ds_python_version and Dockerfile match for the ds-py image version: {v1}")
+            else:
+                raise ValueError(
+                    f".ds_python_version and Dockerfile don't match for the ds-py image version: {v1} and {v2}"
+                )
             HERE
       - run:
           name: "Get civisanalytics/datascience-python image version"
