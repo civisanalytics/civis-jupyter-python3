@@ -6,6 +6,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 
+## [3.1.0] - 2024-06-18
+### Changed
+- Updated base datascience-python image version to v7.3.0 (#54)
+- Updated core Python dependency versions (#54):
+    * civis-jupyter-notebook 2.1.1 -> 2.2.0
+    * matplotlib 3.7.2 -> 3.9.0
+    * seaborn 0.12.2 -> 0.13.2
+
 ## [3.0.0] - 2023-08-22
 ### Changed
 - update base datascience-python version to v7.0.0 (#50)

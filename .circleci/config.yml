@@ -2,10 +2,24 @@ version: 2
 jobs:
   build:
     docker:
-      - image: cimg/python:3.11
+      - image: cimg/python:3.12
     steps:
       - checkout
       - setup_remote_docker
+      - run:
+          name: Check that .ds_python_version and Dockerfile are consistent
+          command: |
+            python -u << HERE
+            import re
+            v1 = re.search(r"(\d+\.\d+.\d+)", open(".ds_python_version").read()).group(1)
+            v2 = re.search(r"ARG DS_PYTHON_IMG_VERSION\=(\d+\.\d+.\d+)", open("Dockerfile").read()).group(1)
+            if v1 == v2:
+                print(f".ds_python_version and Dockerfile match for the ds-py image version: {v1}")
+            else:
+                raise ValueError(
+                    f".ds_python_version and Dockerfile don't match for the ds-py image version: {v1} and {v2}"
+                )
+            HERE
       - run:
           name: "Get civisanalytics/datascience-python image version"
           command: echo 'export DS_PYTHON_IMG_VERSION="$(head -n 1 ./.ds_python_version)"' >> "$BASH_ENV"

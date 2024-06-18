@@ -1,5 +1,5 @@
 # Civis Jupyter Notebook Docker Image for Python 3
-[![CircleCI](https://circleci.com/gh/civisanalytics/civis-jupyter-python3/tree/master.svg?style=svg)](https://circleci.com/gh/civisanalytics/civis-jupyter-python3/tree/master)
+[![CircleCI](https://circleci.com/gh/civisanalytics/civis-jupyter-python3/tree/master.svg?style=shield)](https://circleci.com/gh/civisanalytics/civis-jupyter-python3/tree/master)
 
 ## Installation
 
@@ -24,7 +24,7 @@ The version number has been pulled out into a dedicated file to centralize consu
 
 To update the version simply change the version number in `.ds_python_version`
 
-## Testing Integration with the Civis Platform
+## Testing Integration with Civis Platform
 
 If you would like to test the image locally follow the steps below:
 
@@ -46,10 +46,29 @@ and describe any changes in the [change log](CHANGELOG.md).
 
 ### For Maintainers
 
+#### Updating Dependencies
+
+Updating the `civis-jupyter-python3` Docker image entails the following:
+
+* Update the base `datascience-python` image to the latest one;
+* Update `requirements-core.txt`, the Python dependencies specific to this `civis-jupyter-python3` image.
+* Update `requirements-full.txt` so that it has all transitive dependencies pinned
+  while respecting those already pinned at both `datascience-python` and `requirements-core.txt`.
+
+To execute these updates, follow these steps:
+
+* Update the version number of the `datascience-python` image in both `Dockerfile` and `.ds_python_version`.
+* Update the Python dependencies in `requirements-core.txt` as necessary.
+* Locally, have Docker Desktop running in prep for the next step.
+* Run `sh generate-requirements-full.sh` to update `requirements-full.txt`.
+* To verify the new `civis-jupyter-python3` image would successfully build with your changes, locally run `sh build_docker_file.sh`.
+
+#### Making a New Releases
+
 This repo has autobuild enabled. Any PR that is merged to master will
 be built as the `latest` tag on Dockerhub.
 Once you are ready to create a new version, go to the "releases" tab of the repository and click
-"Draft a new release". Github will prompt you to create a new tag, release title, and release
+"Draft a new release". GitHub will prompt you to create a new tag, release title, and release
 description. The tag should use semantic versioning in the form "vX.X.X"; "major.minor.micro".
 The title of the release should be the same as the tag. Include a change log in the release description.
 Once the release is tagged, DockerHub will automatically build three identical containers, with labels
@@ -59,4 +78,4 @@ Once the release is tagged, DockerHub will automatically build three identical c
 
 BSD-3
 
-See [LICENSE.md](LICENSE.md) for details.
+See [LICENSE.txt](LICENSE.txt) for details.
