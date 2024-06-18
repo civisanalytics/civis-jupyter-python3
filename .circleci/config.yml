@@ -7,6 +7,15 @@ jobs:
       - checkout
       - setup_remote_docker
       - run:
+          name: Check that .ds_python_version and Dockerfile are consistent
+          command: |
+            python -u << HERE
+            import re
+            v1 = re.search(r"(\d+\.\d+.\d+)", open(".ds_python_version").read()).group(1)
+            v2 = re.search(r"ARG DS_PYTHON_IMG_VERSION\=(\d+\.\d+.\d+)", open("Dockerfile").read()).group(1)
+            assert v1 == v2, ".ds_python_version and Dockerfile don't match for the ds-py image version"
+            HERE
+      - run:
           name: "Get civisanalytics/datascience-python image version"
           command: echo 'export DS_PYTHON_IMG_VERSION="$(head -n 1 ./.ds_python_version)"' >> "$BASH_ENV"
       - run:
