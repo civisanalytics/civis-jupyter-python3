@@ -24,7 +24,7 @@ The version number has been pulled out into a dedicated file to centralize consu
 
 To update the version simply change the version number in `.ds_python_version`
 
-## Testing Integration with the Civis Platform
+## Testing Integration with Civis Platform
 
 If you would like to test the image locally follow the steps below:
 
