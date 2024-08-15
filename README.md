@@ -63,7 +63,7 @@ To execute these updates, follow these steps:
 * Run `sh generate-requirements-full.sh` to update `requirements-full.txt`.
 * To verify the new `civis-jupyter-python3` image would successfully build with your changes, locally run `sh build_docker_file.sh`.
 
-#### Making a New Releases
+#### Making a New Release
 
 This repo has autobuild enabled. Any PR that is merged to master will
 be built as the `latest` tag on Dockerhub.
