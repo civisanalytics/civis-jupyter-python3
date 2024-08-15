@@ -6,7 +6,7 @@ ARG DS_PYTHON_IMG_VERSION=7.3.0
 
 FROM civisanalytics/datascience-python:${DS_PYTHON_IMG_VERSION}
 
-LABEL maintainer = support@civisanalytics.com
+LABEL maintainer=support@civisanalytics.com
 
 # Version strings are set in datascience-python
 # Set to blank strings here; they'd be misleading.
