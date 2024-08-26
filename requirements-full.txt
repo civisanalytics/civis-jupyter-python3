@@ -16,26 +16,23 @@ arrow==1.3.0
     # via isoduration
 asttokens==2.4.1
     # via stack-data
-attrs==23.2.0
+attrs==24.2.0
     # via
     #   -r /tmp/requirements-aggregated-core.txt
     #   jsonschema
     #   referencing
-awscli==1.33.9
-    # via -r /tmp/requirements-aggregated-core.txt
 beautifulsoup4==4.12.3
     # via nbconvert
 bleach==6.1.0
     # via nbconvert
 boto3==1.34.127
     # via -r /tmp/requirements-aggregated-core.txt
-botocore==1.34.127
+botocore==1.34.162
     # via
     #   -r /tmp/requirements-aggregated-core.txt
-    #   awscli
     #   boto3
     #   s3transfer
-certifi==2024.6.2
+certifi==2024.7.4
     # via
     #   -r /tmp/requirements-aggregated-core.txt
     #   requests
@@ -63,10 +60,6 @@ cloudpickle==3.0.0
     # via
     #   -r /tmp/requirements-aggregated-core.txt
     #   civis
-colorama==0.4.6
-    # via
-    #   -r /tmp/requirements-aggregated-core.txt
-    #   awscli
 comm==0.2.2
     # via ipykernel
 contourpy==1.2.1
@@ -79,10 +72,6 @@ decorator==5.1.1
     # via ipython
 defusedxml==0.7.1
     # via nbconvert
-docutils==0.16
-    # via
-    #   -r /tmp/requirements-aggregated-core.txt
-    #   awscli
 entrypoints==0.4
     # via jupyter-client
 executing==2.0.1
@@ -97,7 +86,7 @@ gitdb==4.0.11
     # via gitpython
 gitpython==3.1.43
     # via civis-jupyter-notebook
-idna==3.7
+idna==3.8
     # via
     #   -r /tmp/requirements-aggregated-core.txt
     #   anyio
@@ -140,7 +129,7 @@ jsonref==1.1.0
     # via
     #   -r /tmp/requirements-aggregated-core.txt
     #   civis
-jsonschema[format-nongpl]==4.22.0
+jsonschema[format-nongpl]==4.23.0
     # via
     #   -r /tmp/requirements-aggregated-core.txt
     #   civis
@@ -260,17 +249,13 @@ ptyprocess==0.7.0
     #   terminado
 pure-eval==0.2.3
     # via stack-data
-pyasn1==0.6.0
-    # via
-    #   -r /tmp/requirements-aggregated-core.txt
-    #   rsa
 pycparser==2.22
     # via cffi
 pygments==2.18.0
     # via
     #   ipython
     #   nbconvert
-pyparsing==3.1.2
+pyparsing==3.1.4
     # via matplotlib
 python-dateutil==2.9.0.post0
     # via
@@ -286,13 +271,12 @@ pytz==2024.1
     # via
     #   -r /tmp/requirements-aggregated-core.txt
     #   pandas
-pyyaml==6.0.1
+pyyaml==6.0.2
     # via
     #   -r /tmp/requirements-aggregated-core.txt
-    #   awscli
     #   civis
     #   jupyter-events
-pyzmq==26.1.0
+pyzmq==26.2.0
     # via
     #   ipykernel
     #   jupyter-client
@@ -317,19 +301,14 @@ rfc3986-validator==0.1.1
     # via
     #   jsonschema
     #   jupyter-events
-rpds-py==0.18.1
+rpds-py==0.20.0
     # via
     #   -r /tmp/requirements-aggregated-core.txt
     #   jsonschema
     #   referencing
-rsa==4.7.2
+s3transfer==0.10.2
     # via
     #   -r /tmp/requirements-aggregated-core.txt
-    #   awscli
-s3transfer==0.10.1
-    # via
-    #   -r /tmp/requirements-aggregated-core.txt
-    #   awscli
     #   boto3
 scikit-learn==1.5.0
     # via -r /tmp/requirements-aggregated-core.txt
@@ -358,7 +337,7 @@ soupsieve==2.6
     # via beautifulsoup4
 stack-data==0.6.3
     # via ipython
-tenacity==8.4.1
+tenacity==9.0.0
     # via
     #   -r /tmp/requirements-aggregated-core.txt
     #   civis
@@ -395,7 +374,7 @@ traitlets==5.14.3
     #   nbconvert
     #   nbformat
     #   notebook
-types-python-dateutil==2.9.0.20240316
+types-python-dateutil==2.9.0.20240821
     # via arrow
 tzdata==2024.1
     # via
@@ -418,7 +397,7 @@ webencodings==0.5.1
     #   tinycss2
 websocket-client==1.8.0
     # via jupyter-server
-wheel==0.43.0
+wheel==0.44.0
     # via -r /tmp/requirements-aggregated-core.txt
 
 # The following packages are considered to be unsafe in a requirements file:
