@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 
+## [4.0.0] - 2024-08-26
+### Fixed
+- update base datascience-python version to v8.0.0 (#56)
+
 ## [3.1.1] - 2024-08-15
 ### Fixed
 - Update civis-jupyter-notebook to v2.2.1 to fix terminal access (#55)
