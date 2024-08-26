@@ -4,7 +4,9 @@
 # These values should be kept in sync.
 ARG DS_PYTHON_IMG_VERSION=8.0.0
 
-FROM civisanalytics/datascience-python:${DS_PYTHON_IMG_VERSION}
+ARG PLATFORM=linux/x86_64
+
+FROM --platform=$PLATFORM civisanalytics/datascience-python:${DS_PYTHON_IMG_VERSION}
 
 LABEL maintainer=support@civisanalytics.com
 
