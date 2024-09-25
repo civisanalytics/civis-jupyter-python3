@@ -35,7 +35,10 @@ RUN chmod +x /tini
 
 COPY requirements-full.txt .
 
-RUN pip install --progress-bar off --no-cache-dir -r requirements-full.txt && \
+# setuptools is required since the notebook package uses distutils, which isn't in Python 3.12.6+.
+# It's installed here since pip-compile doesn't include setuptools in requirements files.
+RUN pip install --progress-bar off --no-cache-dir setuptools==75.1.0 && \
+    pip install --progress-bar off --no-cache-dir -r requirements-full.txt && \
     rm requirements-full.txt && \
     civis-jupyter-notebooks-install
 
