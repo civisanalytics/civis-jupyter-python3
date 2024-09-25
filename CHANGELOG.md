@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 
+## [4.0.1]
+### Fixed
+- Update base datascience-python version to v8.0.1 (#57)
+- Add setuptools to the Dockerfile since distutils was removed from Python 3.12.6 (#57)
+
 ## [4.0.0] - 2024-08-26
 ### Fixed
 - update base datascience-python version to v8.0.0 (#56)
