@@ -2,7 +2,7 @@
 # Unfortunately Dockerhub isn't as flexible as CircleCi or AWS Codebuild, so we have to hardcode this value here.
 # So if you in the future need to update this value, make sure you also edit the value in .ds_python_version.
 # These values should be kept in sync.
-ARG DS_PYTHON_IMG_VERSION=8.0.1
+ARG DS_PYTHON_IMG_VERSION=8.1.0
 
 ARG PLATFORM=linux/x86_64
 
