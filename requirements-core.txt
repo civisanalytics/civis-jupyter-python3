@@ -1,3 +1,3 @@
-civis-jupyter-notebook==2.2.1
+civis-jupyter-notebook @ git+https://github.com/civisanalytics/civis-jupyter-notebook.git@civis-9203-update-notebook-v7
 matplotlib==3.9.2
 seaborn==0.13.2
