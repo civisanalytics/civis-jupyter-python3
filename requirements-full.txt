@@ -4,18 +4,20 @@
 #
 #    pip-compile --output-file=/src/requirements-full.txt --pip-args='--prefer-binary' --strip-extras /tmp/requirements-aggregated-core.txt
 #
-anyio==4.6.2.post1
-    # via jupyter-server
-argon2-cffi==23.1.0
+anyio==4.7.0
     # via
+    #   httpx
     #   jupyter-server
-    #   notebook
+argon2-cffi==23.1.0
+    # via jupyter-server
 argon2-cffi-bindings==21.2.0
     # via argon2-cffi
 arrow==1.3.0
     # via isoduration
-asttokens==2.4.1
+asttokens==3.0.0
     # via stack-data
+async-lru==2.0.4
+    # via jupyterlab
 attrs==24.2.0
     # via
     #   -r /tmp/requirements-aggregated-core.txt
@@ -27,6 +29,8 @@ awscrt==0.22.0
     # via
     #   -r /tmp/requirements-aggregated-core.txt
     #   awscli
+babel==2.16.0
+    # via jupyterlab-server
 beautifulsoup4==4.12.3
     # via nbconvert
 bleach==6.2.0
@@ -41,6 +45,8 @@ botocore==1.35.58
 certifi==2024.8.30
     # via
     #   -r /tmp/requirements-aggregated-core.txt
+    #   httpcore
+    #   httpx
     #   requests
 cffi==1.17.1
     # via
@@ -58,7 +64,7 @@ civis==2.4.0
     #   civis-jupyter-notebook
 civis-jupyter-extensions==1.2.0
     # via civis-jupyter-notebook
-civis-jupyter-notebook==2.2.1
+civis-jupyter-notebook @ git+https://github.com/civisanalytics/civis-jupyter-notebook.git@civis-9203-update-notebook-v7
     # via -r /tmp/requirements-aggregated-core.txt
 click==8.1.7
     # via
@@ -83,7 +89,7 @@ cryptography==43.0.1
     #   awscli
 cycler==0.12.1
     # via matplotlib
-debugpy==1.8.8
+debugpy==1.8.9
     # via ipykernel
 decorator==5.1.1
     # via ipython
@@ -97,13 +103,11 @@ docutils==0.19
     # via
     #   -r /tmp/requirements-aggregated-core.txt
     #   awscli
-entrypoints==0.4
-    # via jupyter-client
 executing==2.1.0
     # via stack-data
-fastjsonschema==2.20.0
+fastjsonschema==2.21.1
     # via nbformat
-fonttools==4.55.0
+fonttools==4.55.3
     # via matplotlib
 fqdn==1.5.1
     # via jsonschema
@@ -111,24 +115,25 @@ gitdb==4.0.11
     # via gitpython
 gitpython==3.1.43
     # via civis-jupyter-notebook
+h11==0.14.0
+    # via httpcore
+httpcore==1.0.7
+    # via httpx
+httpx==0.28.1
+    # via jupyterlab
 idna==3.10
     # via
     #   -r /tmp/requirements-aggregated-core.txt
     #   anyio
+    #   httpx
     #   jsonschema
     #   requests
 ipykernel==6.29.5
-    # via
-    #   nbclassic
-    #   notebook
+    # via jupyterlab
 ipython==8.18.0
     # via
     #   civis-jupyter-extensions
     #   ipykernel
-ipython-genutils==0.2.0
-    # via
-    #   nbclassic
-    #   notebook
 isoduration==20.11.0
     # via jsonschema
 jedi==0.19.2
@@ -136,8 +141,9 @@ jedi==0.19.2
 jinja2==3.1.4
     # via
     #   jupyter-server
+    #   jupyterlab
+    #   jupyterlab-server
     #   nbconvert
-    #   notebook
 jmespath==1.0.1
     # via
     #   -r /tmp/requirements-aggregated-core.txt
@@ -149,6 +155,8 @@ joblib==1.4.2
     #   -r /tmp/requirements-aggregated-core.txt
     #   civis
     #   scikit-learn
+json5==0.10.0
+    # via jupyterlab-server
 jsonpointer==3.0.0
     # via jsonschema
 jsonref==1.1.0
@@ -160,35 +168,48 @@ jsonschema==4.23.0
     #   -r /tmp/requirements-aggregated-core.txt
     #   civis
     #   jupyter-events
+    #   jupyterlab-server
     #   nbformat
 jsonschema-specifications==2024.10.1
     # via
     #   -r /tmp/requirements-aggregated-core.txt
     #   jsonschema
-jupyter-client==7.4.9
+jupyter-client==8.6.3
     # via
     #   ipykernel
     #   jupyter-server
     #   nbclient
-    #   notebook
 jupyter-core==5.7.2
     # via
     #   civis-jupyter-notebook
     #   ipykernel
     #   jupyter-client
     #   jupyter-server
+    #   jupyterlab
     #   nbclient
     #   nbconvert
     #   nbformat
-    #   notebook
 jupyter-events==0.10.0
     # via jupyter-server
+jupyter-lsp==2.2.5
+    # via jupyterlab
 jupyter-server==2.14.2
-    # via notebook-shim
+    # via
+    #   jupyter-lsp
+    #   jupyterlab
+    #   jupyterlab-server
+    #   notebook
+    #   notebook-shim
 jupyter-server-terminals==0.5.3
     # via jupyter-server
+jupyterlab==4.2.6
+    # via notebook
 jupyterlab-pygments==0.3.0
     # via nbconvert
+jupyterlab-server==2.27.3
+    # via
+    #   jupyterlab
+    #   notebook
 kiwisolver==1.4.7
     # via matplotlib
 markupsafe==3.0.2
@@ -205,30 +226,23 @@ matplotlib-inline==0.1.7
     #   ipython
 mistune==3.0.2
     # via nbconvert
-nbclassic==1.1.0
-    # via notebook
-nbclient==0.10.0
+nbclient==0.10.1
     # via nbconvert
 nbconvert==7.16.4
-    # via
-    #   jupyter-server
-    #   notebook
+    # via jupyter-server
 nbformat==5.10.4
     # via
     #   jupyter-server
     #   nbclient
     #   nbconvert
-    #   notebook
 nest-asyncio==1.6.0
-    # via
-    #   ipykernel
-    #   jupyter-client
-    #   nbclassic
-    #   notebook
-notebook==6.5.7
+    # via ipykernel
+notebook==7.2.2
     # via civis-jupyter-notebook
 notebook-shim==0.2.4
-    # via nbclassic
+    # via
+    #   jupyterlab
+    #   notebook
 numpy==2.1.3
     # via
     #   -r /tmp/requirements-aggregated-core.txt
@@ -244,6 +258,8 @@ packaging==24.2
     # via
     #   ipykernel
     #   jupyter-server
+    #   jupyterlab
+    #   jupyterlab-server
     #   matplotlib
     #   nbconvert
 pandas==2.2.3
@@ -261,10 +277,8 @@ pillow==11.0.0
     # via matplotlib
 platformdirs==4.3.6
     # via jupyter-core
-prometheus-client==0.21.0
-    # via
-    #   jupyter-server
-    #   notebook
+prometheus-client==0.21.1
+    # via jupyter-server
 prompt-toolkit==3.0.38
     # via
     #   -r /tmp/requirements-aggregated-core.txt
@@ -313,7 +327,6 @@ pyzmq==26.2.0
     #   ipykernel
     #   jupyter-client
     #   jupyter-server
-    #   notebook
 referencing==0.35.1
     # via
     #   -r /tmp/requirements-aggregated-core.txt
@@ -325,6 +338,7 @@ requests==2.32.3
     #   -r /tmp/requirements-aggregated-core.txt
     #   civis
     #   civis-jupyter-notebook
+    #   jupyterlab-server
 rfc3339-validator==0.1.4
     # via
     #   jsonschema
@@ -359,13 +373,10 @@ scipy==1.14.1
 seaborn==0.13.2
     # via -r /tmp/requirements-aggregated-core.txt
 send2trash==1.8.3
-    # via
-    #   jupyter-server
-    #   notebook
+    # via jupyter-server
 six==1.16.0
     # via
     #   -r /tmp/requirements-aggregated-core.txt
-    #   asttokens
     #   python-dateutil
     #   rfc3339-validator
 smmap==5.0.1
@@ -384,19 +395,19 @@ terminado==0.18.1
     # via
     #   jupyter-server
     #   jupyter-server-terminals
-    #   notebook
 threadpoolctl==3.5.0
     # via
     #   -r /tmp/requirements-aggregated-core.txt
     #   scikit-learn
 tinycss2==1.4.0
     # via nbconvert
-tornado==6.4.1
+tornado==6.4.2
     # via
     #   civis-jupyter-notebook
     #   ipykernel
     #   jupyter-client
     #   jupyter-server
+    #   jupyterlab
     #   notebook
     #   terminado
 traitlets==5.14.3
@@ -408,13 +419,15 @@ traitlets==5.14.3
     #   jupyter-core
     #   jupyter-events
     #   jupyter-server
+    #   jupyterlab
     #   matplotlib-inline
     #   nbclient
     #   nbconvert
     #   nbformat
-    #   notebook
-types-python-dateutil==2.9.0.20241003
+types-python-dateutil==2.9.0.20241206
     # via arrow
+typing-extensions==4.12.2
+    # via anyio
 tzdata==2024.2
     # via
     #   -r /tmp/requirements-aggregated-core.txt
@@ -439,3 +452,6 @@ webencodings==0.5.1
     #   tinycss2
 websocket-client==1.8.0
     # via jupyter-server
+
+# The following packages are considered to be unsafe in a requirements file:
+# setuptools
