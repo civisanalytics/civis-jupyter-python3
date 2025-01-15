@@ -61,7 +61,7 @@ civis==2.4.3
     # via
     #   -r /tmp/requirements-aggregated-core.txt
     #   civis-jupyter-notebook
-civis-jupyter-notebook @ git+https://github.com/civisanalytics/civis-jupyter-notebook.git@civis-9203-update-notebook-v7
+civis-jupyter-notebook @ git+https://github.com/civisanalytics/civis-jupyter-notebook.git@civis-9203-update-notebook-v7-jlee
     # via -r /tmp/requirements-aggregated-core.txt
 click==8.1.8
     # via
