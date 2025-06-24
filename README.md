@@ -75,7 +75,7 @@ If you would like to test the image locally follow the steps below:
 
 ### Python 3.12+ and setuptools
 
-Starting with Python 3.12.6, the `distutils` module has been removed from the standard library. However, some packages in the Jupyter ecosystem still depend on it. To maintain compatibility, we manually install `setuptools==75.5.0` in the Dockerfile, which provides a compatibility layer for packages that import distutils.
+Starting with Python 3.12, the `distutils` module has been removed from the standard library. However, some packages in the Jupyter ecosystem still depend on it. To maintain compatibility, we manually install `setuptools==75.5.0` in the Dockerfile, which provides a compatibility layer for packages that import distutils.
 
 This is necessary because:
 
