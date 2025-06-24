@@ -1,4 +1,65 @@
+# Git files
+.git/
 .gitignore
+.gitattributes
+
+# Documentation
 *.md
 LICENSE.txt
-.circleci
+docs/
+
+# CI/CD
+.circleci/
+.github/
+
+# Python cache and compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Testing and coverage
+.pytest_cache/
+.coverage
+.tox/
+htmlcov/
+.hypothesis/
+test/
+tests/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+
+# Environment files
+.env
+.env.*
+
+# Package manager files
+poetry.lock
+Pipfile.lock

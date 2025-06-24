@@ -1,0 +1,53 @@
+services:
+  jupyter:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        # Override base image version if needed
+        DS_PYTHON_IMG_VERSION: ${DS_PYTHON_IMG_VERSION:-8.2.0}
+        PLATFORM: ${PLATFORM:-linux/x86_64}
+    image: civis-jupyter-python3:latest
+    container_name: civis-jupyter
+    ports:
+      - "${JUPYTER_PORT:-8888}:8888"
+    environment:
+      # Civis Platform integration
+      - CIVIS_API_KEY=${CIVIS_API_KEY}
+      - PLATFORM_OBJECT_ID=${PLATFORM_OBJECT_ID}
+      # Jupyter configuration
+      - JUPYTER_ENABLE_LAB=${JUPYTER_ENABLE_LAB:-yes}
+      - JUPYTER_TOKEN=${JUPYTER_TOKEN:-}
+      - GRANT_SUDO=${GRANT_SUDO:-no}
+    volumes:
+      # Mount local directory for persistent storage
+      - ./notebooks:/home/civis/work/notebooks
+      - ./data:/home/civis/work/data
+      # Optional: Mount local development code
+      # - ./src:/home/civis/work/src
+    restart: unless-stopped
+    # Resource limits
+    deploy:
+      resources:
+        limits:
+          cpus: "${CPU_LIMIT:-4}"
+          memory: ${MEMORY_LIMIT:-8G}
+        reservations:
+          cpus: "${CPU_RESERVATION:-1}"
+          memory: ${MEMORY_RESERVATION:-2G}
+
+  # Optional: Add a database service for local development
+  # postgres:
+  #   image: postgres:15
+  #   container_name: civis-postgres
+  #   environment:
+  #     - POSTGRES_USER=civis
+  #     - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-changeme}
+  #     - POSTGRES_DB=civis_dev
+  #   ports:
+  #     - "${POSTGRES_PORT:-5432}:5432"
+  #   volumes:
+  #     - postgres_data:/var/lib/postgresql/data
+  #   restart: unless-stopped
+# volumes:
+#   postgres_data:

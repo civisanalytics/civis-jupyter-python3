@@ -1,3 +1,6 @@
 __pycache__
 .DS_Store
 my.env
+.env
+notebooks/
+data/
