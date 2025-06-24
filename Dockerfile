@@ -3,7 +3,7 @@
 # So if you in the future need to update this value, make sure you also edit the value in .ds_python_version.
 # These values should be kept in sync.
 ARG DS_PYTHON_IMG_VERSION=8.2.0
-ARG PLATFORM=linux/x86_64
+ARG PLATFORM=linux/amd64
 
 FROM --platform=$PLATFORM civisanalytics/datascience-python:${DS_PYTHON_IMG_VERSION}
 
@@ -35,15 +35,16 @@ RUN set -ex && \
   emacs && \
   # Clean up apt cache
   apt-get clean -y && \
-  rm -rf /var/lib/apt/lists/* && \
-  # Create non-root user and group
-  groupadd -r civis && \
+  rm -rf /var/lib/apt/lists/*
+
+# Layer 2: Create non-root user and group
+RUN groupadd -r civis && \
   useradd -r -g civis -m -d /home/civis civis && \
   # Create working directory with proper permissions
   mkdir -p /home/civis/work && \
   chown -R civis:civis /home/civis
 
-# Layer 2: Python dependencies (changes more frequently)
+# Layer 3: Python dependencies (changes more frequently)
 COPY requirements-full.txt /tmp/requirements-full.txt
 RUN set -ex && \
   # Install Python packages

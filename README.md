@@ -53,6 +53,8 @@ The docker-compose setup includes:
 - Easy environment variable management
 - Optional PostgreSQL database service (commented out by default)
 
+**Note for Apple Silicon/ARM users**: The base image only supports linux/amd64 architecture. On Apple Silicon Macs, the container will run under Rosetta 2 emulation. You may see a platform mismatch warning, which can be safely ignored.
+
 ## Updating the version of Dockerfile's Base Image: civisanalytics/datascience-python
 
 The version number has been pulled out into a dedicated file to centralize consumption of the file through the scripts that require it.

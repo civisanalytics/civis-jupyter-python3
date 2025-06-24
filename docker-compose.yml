@@ -6,7 +6,9 @@ services:
       args:
         # Override base image version if needed
         DS_PYTHON_IMG_VERSION: ${DS_PYTHON_IMG_VERSION:-8.2.0}
-        PLATFORM: ${PLATFORM:-linux/x86_64}
+        PLATFORM: ${PLATFORM:-linux/amd64}
+    # Force linux/amd64 platform (base image only supports amd64)
+    platform: linux/amd64
     image: civis-jupyter-python3:latest
     container_name: civis-jupyter
     ports:
