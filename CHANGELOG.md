@@ -6,10 +6,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 
+## [4.3.0]
+### Changed
+- Updated base datascience-python image version 8.2.0 -> 8.3.0 (#62)
+- Updated core Python dependency versions (#62):
+    * matplotlib 3.10.0 -> 3.10.3
+
 ## [4.2.0]
 ### Changed
-- Updated base datascience-python image version 8.1.0 -> 8.2.0 (#58)
-- Updated core Python dependency versions (#58):
+- Updated base datascience-python image version 8.1.0 -> 8.2.0 (#59)
+- Updated core Python dependency versions (#59):
     * matplotlib 3.9.2 -> 3.10.0
 
 ## [4.1.0]
