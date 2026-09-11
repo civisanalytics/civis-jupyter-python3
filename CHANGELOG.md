@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 
+## [5.1.0]
+### Changed
+- Updated base datascience-python image version 9.0.0 -> 9.1.0 (#66)
+
 ## [5.0.0]
 ### Changed
 - Updated base datascience-python image version 8.5.0 -> 9.0.0 (#65)
