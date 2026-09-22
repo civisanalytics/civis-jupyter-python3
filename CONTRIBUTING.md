@@ -25,7 +25,7 @@ If you know exactly what needs to change, you can also
 submit a pull request to propose the change.
 
 1. Fork it ( https://github.com/civisanalytics/civis-jupyter-python3/fork ).
-2. Make sure you are able to build the Docker image locally (`docker build -t civis-jupyter-python3:test .`)
+2. Make sure you are able to build the Docker image locally (`./build_docker_file.sh`)
 3. Create a feature branch (`git checkout -b my-new-feature`).
 4. Make your change.
 5. Make sure the new image still builds correctly. Test that your change is present in the new build.

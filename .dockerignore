@@ -2,3 +2,4 @@
 *.md
 LICENSE.txt
 .circleci
+.github
