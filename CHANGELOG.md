@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Updated base datascience-python image version 9.1.0 -> 9.1.1 (#67)
 - Docker image builds and publishing moved from DockerHub autobuilds to GitHub Actions (#67)
+- Stopped pushing the DockerHub image from AWS CodeBuild, leaving GitHub Actions as its sole publisher; CodeBuild continues to publish to ECR (#68)
 
 ## [5.1.0]
 ### Changed
