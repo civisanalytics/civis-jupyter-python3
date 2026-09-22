@@ -1,8 +1,7 @@
-# Default value provided here; will be overridden at build time.
-# Unfortunately Dockerhub isn't as flexible as CircleCi or AWS Codebuild, so we have to hardcode this value here.
-# So if you in the future need to update this value, make sure you also edit the value in .ds_python_version.
-# These values should be kept in sync.
-ARG DS_PYTHON_IMG_VERSION=9.1.0
+# check=skip=InvalidDefaultArgInFrom
+
+# Builds must pass DS_PYTHON_IMG_VERSION; .ds_python_version is its only source.
+ARG DS_PYTHON_IMG_VERSION
 
 ARG PLATFORM=linux/x86_64
 
