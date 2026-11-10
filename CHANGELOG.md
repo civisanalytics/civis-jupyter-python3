@@ -6,6 +6,17 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 
+## [5.2.0]
+### Changed
+- Updated base datascience-python image version 9.1.1 -> 9.2.0 (#69).
+  It upgrades pip, uv, and the AWS CLI, which ship their own CA bundles,
+  in response to the eMudhra certificate authority compromise:
+    * pip 26.1.2 -> 26.2.2
+    * uv 0.12.13 -> 0.13.7
+    * AWS CLI 2.36.43 -> 2.39.6
+- Updated civis-python 2.10.0 -> 2.11.0 via the base image (#69)
+- Updated the CircleCI config version 2 -> 2.1, since CircleCI no longer runs version 2 configs (#69)
+
 ## [5.1.1]
 ### Changed
 - Updated base datascience-python image version 9.1.0 -> 9.1.1 (#67)
