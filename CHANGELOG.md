@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
     * uv 0.12.13 -> 0.13.7
     * AWS CLI 2.36.43 -> 2.39.6
 - Updated civis-python 2.10.0 -> 2.11.0 via the base image (#69)
+- Updated the CircleCI config version 2 -> 2.1, since CircleCI no longer runs version 2 configs (#69)
 
 ## [5.1.1]
 ### Changed
